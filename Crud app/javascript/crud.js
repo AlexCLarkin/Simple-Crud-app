@@ -9,11 +9,11 @@ for (i = 0; i < close.length; i++) {
 }
 
 // Click on the edit button to open prompt
-document.getElementById("editButton").addEventListener("click", editTask);
+document.getElementsByClassName("editBtn").addEventListener("click", editTask);
 
 function editTask() {
     var editedTask = prompt("Write updated task here...");
-    alert (editedTask);
+    document.getElementsById("myInput").value = editedTask;
 }
 
 
@@ -57,6 +57,7 @@ function newElement() {
   var btn = document.createElement("button");
   var txt = document.createTextNode("✎");
   btn.className = "editBtn";
+  btn.addEventListener("click", editTask);
   btn.appendChild(txt);
   li.appendChild(btn);
 }
@@ -90,7 +91,7 @@ function newElementPriority() {
     var btn = document.createElement("button");
   var txt = document.createTextNode("✎");
   btn.className = "editBtn";
-  btn.id = "editButton"
+  btn.addEventListener("click", editTask);
   btn.appendChild(txt);
   li.appendChild(btn);
 }
