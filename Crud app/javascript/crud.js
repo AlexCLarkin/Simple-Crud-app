@@ -1,3 +1,15 @@
+
+// create a close button and add it to every list item
+var myNodelist = document.getElementsByTagName("LI");
+var i;
+for (i = 0; i < myNodelist.length; i++) {
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  li.appendChild(span);
+}
+
 // Click on a close button to hide the current list item
 var close = document.getElementsByClassName("close");
 var i;
@@ -13,9 +25,9 @@ document.getElementsByClassName("editBtn").addEventListener("click", editTask);
 
 function editTask() {
     var editedTask = prompt("Write updated task here...");
-    document.getElementsById("myInput").value = editedTask;
+    document.getElementById("li-text").innerHTML = editedTask;
+    alert(editedTask);
 }
-
 
 // Add a "checked" symbol when clicking on a list item
 var list = document.querySelector("ul");
@@ -39,6 +51,7 @@ function newElement() {
     alert("Task cannot be blank!");
   } else {
     document.getElementById("myUL").appendChild(li);
+    li.id = "li-text"
   }
   document.getElementById("myInput").value = "";
 
@@ -95,4 +108,3 @@ function newElementPriority() {
   btn.appendChild(txt);
   li.appendChild(btn);
 }
-
