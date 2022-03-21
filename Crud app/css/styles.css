@@ -69,20 +69,6 @@ ul li.checked {
   text-decoration: line-through;
 }
 
-/*when made priority changes color to red*/
-ul li.priority {
-  background: rgb(255, 0, 0);
-  color: var(--primary-text-color);
-}
-
-/*add an exclaimation mark when priority*/
-ul li.priority::before {
-  content: "!";
-  position: absolute;
-  top: 10px;
-  left: 16px;
-}
-
 /* Adds a tick when checked */
 ul li.checked::before {
   content: "";
