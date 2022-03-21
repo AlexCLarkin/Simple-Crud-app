@@ -1,25 +1,38 @@
+:root {
+  --primary-color: #368ff4;
+  --primary-text-color: #fff;
+  --primary-li-color: #eee;
+  --secondary-li-color: #f9f9f9;
+  --common-font: "Press Start 2P", monospace;
+}
+
 body {
   margin: 0;
   min-width: 250px;
-  font-family: "Press Start 2P", cursive;
+  font-family: var(--common-font);
   font-size: small;
 }
 
-/* Include the padding and border in an element's total width and height */
 * {
   box-sizing: border-box;
 }
 
+/*style textbox placeholder*/
 .write-here {
-  font-family: "Press Start 2P", cursive;
-  font-stretch: narrower;
+  font-family: var(--common-font);
+
+  /* make the placeholder text unselectable*/
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
-/* Remove margins and padding from the list */
+/* Style ul */
 ul {
   margin: 0;
   padding: 0;
-  font-family: "Press Start 2P", cursive;
+  font-family: var(--common-font);
 }
 
 /* Style the list items */
@@ -28,7 +41,7 @@ ul li {
   position: relative;
   padding: 12px 8px 12px 40px;
   list-style-type: none;
-  background: #eee;
+  background: var(--primary-li-color);
   font-size: 18px;
   transition: 0.2s;
 
@@ -41,7 +54,7 @@ ul li {
 
 /* Set all odd list items to a different color (zebra-stripes) */
 ul li:nth-child(odd) {
-  background: #f9f9f9;
+  background: var(--secondary-li-color);
 }
 
 /* Darker background-color on hover */
@@ -49,20 +62,20 @@ ul li:hover {
   background: #ddd;
 }
 
-/* When clicked on, add a background color and strike out text */
+/* When clicked adds a background color and strikes out text */
 ul li.checked {
   background: #888;
-  color: #fff;
+  color: var(--primary-text-color);
   text-decoration: line-through;
 }
 
-/*when made priority, change color to red*/
+/*when made priority changes color to red*/
 ul li.priority {
   background: rgb(255, 0, 0);
-  color: #fff;
+  color: var(--primary-text-color);
 }
 
-/*add an exclaimation mark whn priority*/
+/*add an exclaimation mark when priority*/
 ul li.priority::before {
   content: "!";
   position: absolute;
@@ -70,11 +83,11 @@ ul li.priority::before {
   left: 16px;
 }
 
-/* Add a "checked" mark when clicked on */
+/* Adds a tick when checked */
 ul li.checked::before {
   content: "";
   position: absolute;
-  border-color: #fff;
+  border-color: var(--primary-text-color);
   border-style: solid;
   border-width: 0 2px 2px 0;
   top: 10px;
@@ -92,20 +105,23 @@ ul li.checked::before {
   padding: 12px 16px 12px 16px;
 }
 
+/* close button turns red when hovering over it*/
 .close:hover {
   background-color: #f44336;
-  color: white;
+  color: var(--primary-text-color);
 }
 
-.edit {
+/* style the edit button */
+.editBtn {
   right: 0;
   top: 0;
-  padding: 12px 16px 12px 16px;
+  margin-left: 10px;
+  margin-top: -20px;
 }
 
 /* Style the header */
 .header {
-  background-color: #368ff4;
+  background-color: var(--primary-color);
   padding: 30px 40px;
   color: white;
   text-align: center;
@@ -143,8 +159,23 @@ input {
   cursor: pointer;
   transition: 0.3s;
   border-radius: 0;
+
+  /* makes add buttons unselectable*/
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
+/* add buttons change to darker color when hovering over*/
 .addBtn:hover {
   background-color: #bbb;
+}
+
+/* changes layout of header on smaller screens */
+@media (max-width: 842px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+  }
 }
